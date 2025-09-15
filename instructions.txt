@@ -1,0 +1,13 @@
+Write a CLI program that satisfies the following functions.
+- Employee information must include the following fields: employee ID, name, phone number,
+position, and email address.
+- Employee ID must follow a 3-digit numeric format.
+- Employee ID must be unique.
+- Phone numbers and email addresses must match specific patterns.
+- Phone number regex: ^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}$
+- Email address regex: ^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@(?:\\w+\\.)+\\w+$
+- Add Employee Information: Inputted employee information should be saved to a free-form text file.
+- List Employee Information: Display a list of employees sorted by employee ID, name, and phone number.
+- View Detailed Employee Information: Enter the employee ID to display their employee ID, name, phone number, position, and email address.
+- Edit Employee Information: Enter the employee ID to update the corresponding employee's information.
+- Delete Employee Information: Enter the employee ID to delete the corresponding employee's record.
