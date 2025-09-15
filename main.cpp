@@ -118,15 +118,20 @@ class EmployeeManager {
         std::string position;
         std::string email;
         std::string phone;
+        bool isIdValid = false;
+        Employee *emp = nullptr;
 
         std::cout << "Insert new employee\n";
         do {
             std::cout << "Insert id (3 digits number, e.g 102): ";
             std::getline(std::cin, id);
-            if (!isValidId(id)) {
+            if (!(isIdValid = isValidId(id))) {
                 std::cerr << "\nError: invalid id: " << id << "\n";
             }
-        } while (!isValidId(id));
+            if ((emp = findId(id)) != nullptr) {
+                std::cerr << "\nError: employee id already exists: " << id << "\n";
+            }
+        } while (!isIdValid || emp != nullptr);
 
         std::cout << "\nInsert name: ";
         getline(std::cin, name);
@@ -271,7 +276,7 @@ class EmployeeManager {
     }
 
     bool isValidId(const std::string &id) {
-        if (!findId(id) && !Employee::isValidId(id)) {
+        if (!Employee::isValidId(id)) {
             return false;
         }
 
